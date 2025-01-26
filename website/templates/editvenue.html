@@ -1,0 +1,55 @@
+{% extends "base4.html" %}
+ 
+{%block title%}Edit Venue{%endblock%}
+{% block admin %}
+
+<div class="container">
+    <div class="form-container">
+        <h1>Edit Venue Details</h1>
+        <form method="post" action="/admin/venue" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="movie">Movie</label>
+                <select class="form-control" id="movie_id" name="movie_id" placeholder="Select Movie Name">
+                    <option value="{{ ven.movie_venue.id }}" selected>{{ ven.movie_venue.name }}</option>
+                    {% for option in movies recursive%}
+                      <option value="{{ option.id }}">{{ option.name }}</option>
+                    {% endfor %}
+                  </select>
+            </div>
+            <div class="form-group">
+                <label for="theatre">Theatre</label>
+                <select class="form-control" id="theatre_id" name="theatre_id" placeholder="Select Theatre Name">
+                    <option value="{{ ven.theatre_venue.id }}" selected>{{ ven.theatre_venue.name }} ({{ven.theatre_venue.city}})</option>
+                    {% for option in theatres %}
+                      <option value="{{ option.id }}">{{ option.name }} ({{option.city}})</option>
+                    {% endfor %}
+                  </select>
+            </div>
+            <div class="form-group">
+                <label for="date">Date</label>
+                <input type="date" min={{today}} max={{fifthday}} class="form-control" id="date" name="date" value={{ven.date}}>
+            </div>
+ 
+            <div class="form-group">
+                <label for="timing">timing</label>
+                <input type="time"   class="form-control" id="timing" name="timing" value="{{ven.time}}">
+            </div>
+            <div class="form-group">
+                <label for="cost">Cost</label>
+                <input type="number"   min="80" class="form-control" id="cost" name="cost" value="{{ven.cost}}">
+            </div>
+            <div class="form-group">
+                <label for="Total Seats">Total Seats</label>
+                <input type="number" readonly class="form-control" id="total_seats" name="total_seats" value="{{ven.theatre_venue.capacity}}">
+            </div>
+            <div class="form-group">
+                <label for="Seats Remaining">Seats Remaining</label>
+                <input type="number" readonly class="form-control" id="remaining_seats" name="remaining_seats" value="{{ven.theatre_venue.capacity - seats}}">
+            </div>
+            <button onclick="return confirm('Are you sure?')" type="submit" name='editvenue' value="{{ven.id}}" class="btn btn-primary">Save Changes</button>
+            <button onclick="return confirm('Do you want to go back?')" type="submit" name='back' class="btn btn-secondary">Cancel</button>
+        </form>
+        
+    </div>
+</div>
+{%endblock%}

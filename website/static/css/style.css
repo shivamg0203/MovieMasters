@@ -1,0 +1,271 @@
+.navbar{
+    background-color:rgba(23,56,78,1);
+    padding: 3px 0px;
+}
+
+body{
+    background-image: url("../pexels-grace-kusta-nasralla-3866658.jpg");
+    background-size: cover;
+}
+
+.skewwing:hover {                /* for list items in navbar [base templates]*/
+    color: yellowgreen;
+    font-size: 25px;
+    margin: 0px;
+    padding: 0px;
+    transform:translate(0,-5px);  
+}
+.skewwing{                      /* for list items in navbar [base templates]*/
+    color:white;
+}
+footer {                        /* for footer [base templates]*/   
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    padding-left: 12px;
+    padding-top:5px;
+    background-color: rgba(23,56,78,1);
+    color: white;
+}
+
+.footerlist {                 /* for ul lists in footer [base templates]*/
+    display: inline-block;
+    *display: inline;
+    list-style-type: none;
+    zoom: 1;
+    padding-right:40px;
+    
+}
+
+.a-box{                     /* for forms in login.html and signup.html*/
+    width:22rem;
+    background: scroll;
+    background-color:rgba(23,56,78,.6);
+    margin-bottom:90px;
+    margin-top:90px;
+    border: 3px solid silver;
+}
+label{                     /* label elements in all pages*/
+    color:white;
+}
+.a-box.container h1{     /* for h1 in class="a-box container" login.html and signup.html*/
+    color:lightslategray;
+    letter-spacing: 3px;
+    text-align: center;
+    text-shadow: 2px 2px 2px blue;    
+    
+}
+
+.form-group{ 
+    margin-bottom: 7px;
+}
+.form-group .form-control{
+    width: 300px;
+    padding-top: 2px;
+    padding-left: 2px;
+}
+
+svg{                     /* forsvg element throughout*/
+    height:20px;
+    width:20px;
+}
+.loginmsg{
+    margin-left:20px;
+    margin-right:40px;
+}
+.logged{
+    /* background:#2a47549d; */
+    background:white;
+    /* background-image: url("../pexels-donald-tong-109669.jpg"); */
+    background-size: cover;
+    
+}
+
+  .form-container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+
+  .form-container .form-group label{
+    color: red;
+  }
+
+
+  .row{
+    align-items: stretch;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+  .card1 {
+    /*float: left;*/
+    max-width: 33.333%;
+    padding: .75rem;
+    margin-bottom: 2rem;
+    border: 0;
+    flex-basis: 33.333%;
+    flex-grow: 0;
+    flex-shrink: 0;
+  }
+  
+  .card1 > img {
+    margin-bottom: .75rem;
+    width: 100%;
+  }
+  
+  .card-text {
+    font-size: 85%;
+    color: azure;
+  }  
+  .mr-40{
+    margin-right: 40px;
+  }
+
+
+  .carousel-wrapper {
+    width: 1200px;
+    margin: auto;
+    position: relative;
+    text-align: center;
+    font-family: sans-serif;
+    
+  }
+
+  div.cardset {
+  background-color: #fff9f9;
+  overflow: auto;
+  white-space: nowrap;
+  }
+
+  div.card2Style {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    text-decoration: none;
+    height:50%;
+    width: min-content;
+  }
+  
+  div.card2Style:hover {
+    background-color: #777;
+  }
+
+  .card-carousel {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    margin: 0 auto;
+    padding-bottom:20px;
+  }
+  .card-carousel {
+    background-color:goldenrod;
+    margin:0px 15px 0px 15px;
+    border-radius: 8px;
+  }
+
+  #preheading{
+    margin-left:15px;
+  }
+  .cardun img{
+    border-radius: 8px;
+  }
+  
+  .cardun {
+    width: 200px;
+    height: 200px;
+    margin: 20px;
+    margin-left: 40px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+
+  .carousel,.second-carousel {         /* for carousel in home.html */
+    position: relative;
+    overflow: hidden;
+  } 
+  #recomm-carousel,#othershows{        /* for carousel in home.html */
+    background:#777 ;
+    margin: 50px 15px 50px 15px;
+    border-radius: 12px;
+  }
+  
+  .carousel-container,.second-carousel-container {    /* for carousel in home.html */
+    display: flex;
+    flex-wrap: nowrap;
+    
+  }
+  .carousel-container,.second-carousel-container{      /* for carousel in home.html */
+    margin: 35px 20px 60px 20px;
+
+  }
+  
+  .card,.second-card {                /* for div cards in carousel in home.html */
+    flex: 0 0 auto;
+    width: 220px;
+    height: 320px;
+    margin-right: 20px;
+    background-color: #f0f0f0;
+ }  
+  .carousel-button,.second-carousel-button {   /* for carousel buttons in home.html */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background-color: #ccc;
+    border: none;
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  
+  .carousel-button.left,.second-carousel-button.left {  /* for left carousel buttons in home.html */
+    left: 0;
+  }
+  
+  .carousel-button.right,.second-carousel-button.right  {   /* for right carousel buttons in home.html */
+    right: 0;
+  }
+  .carousel-button,.second-carousel-button{  /* for right carousel buttons in home.html */
+    background-color: black;
+    color:white;
+  }
+  .carousel h2,.second-carousel h2{    /* for h2 element in carousal in home.html */
+    color:white;
+    margin:20px 0px 0px 20px;
+  }
+  #recomm-carousel .card img, .card-carousel .cardun img, .second-carousel-container .second-card img{   /* for img elements in carousal in home.html */
+  height: 100%;
+  width:100%;
+  object-fit: cover;
+  }
+  #recomm-carousel .card span, .card-carousel .cardun span, .second-carousel-container .second-card span{  /* for span elements in carousal in home.html */
+    background-color: #ddd;
+    text-align: center;
+    display: block;
+    
+  }
+  .searchinnav{
+    margin-right: 2rem;
+  }
+  .tablerow{
+    width: 100%;
+    height: 40px;
+    margin-top:10px;
+  }
+  .tablebtn{
+    width: 100%;
+    height: 120%;
+  }

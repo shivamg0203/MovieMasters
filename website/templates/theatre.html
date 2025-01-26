@@ -1,0 +1,59 @@
+{% extends "base4.html" %}
+ 
+{%block title%}Theatre{%endblock%}
+{% block admin %}
+
+<div class="container" >
+    <h1 style="margin-left:35%;">Theatre List</h1>
+    <form class="d-flex " action="/theatre" role="search" method="POST">
+
+      <select class="form-control" id="dropdown" name="edit" placeholder="Select Movie Name">
+        {% for option in theatres %}
+          <option value="{{ option.id }}">{{ option.name }} ({{option.city}})</option>
+        {% endfor %}
+      </select>
+    <button  class="btn btn-outline-success" name="moviesearch" type="submit">Search Theatre</button>
+    </form>  
+    <br/>
+<form action="/theatre" method="post">
+    <table class="table table-success table-striped"  border="1" cellpadding="10" cellspacing="0" width="100%" height="200" align="center" bgcolor="#e6e6e6" >
+        <caption>Theatres</caption>
+  <thead>
+    <tr>
+      <th> Theatre Name </th>
+      <th> CITY </th>
+      <th> CAPACITY </th>
+      <th>Actions</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for i in theatres recursive %} 
+    <tr>
+      <td>{{ i.name }} </td>
+      <td>{{ i.city }} </td>
+      <td>{{ i.capacity }} People</td>
+   
+      <td><div class="tablerow">
+        <button type="submit"  class="tablebtn" name="edit" value="{{ i.id }}">Edit Details</button>
+        </div>
+      </td>
+    <td><div class="tablerow">
+        <button onclick='return confirm("Do you want to delete this theatre?")' type="submit" class="tablebtn" name="delete" value="{{ i.id }}" >Delete</button>
+    </div> </td>
+      
+    </tr>
+    {% endfor %}
+  </tbody>
+    </table>
+    <div class="d-grid gap-2 col-6 mx-auto">
+        <button class="btn btn-primary" style='--bs-btn-color: var(--bs-green);' type="submit" name="addtheatre" value="addtheatre">Add Theatre</button>
+    </div>    
+    <!-- <input class='col-6' style='position:relative;border-radius:5px;' type="submit" value="Add Movie"> -->
+</form>
+<a href="/download_in_excel/theatre"><button type="button"  class="btn btn-info" >Download as Excel</button></a>
+    
+
+</div>
+
+{% endblock %}

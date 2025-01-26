@@ -1,0 +1,56 @@
+{% extends "base4.html" %}
+ 
+{%block title%}Add Movie{%endblock%}
+{% block admin %}
+
+<!-- {% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <div class="flashes">
+      {% for message in messages %}
+        <div class="flash-message">{{ message }}</div>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %} -->
+<div class="container">
+    <div class="form-container">
+        <h1>New Movie Details</h1>
+        <form method="post" action="/admin" enctype="multipart/form-data" >
+            <div class="form-group">
+                <label for="title">Image</label>
+                <input type="file" accept="image/*" title="Change Thumbnail"  placeholder="Change Thumbnail" name="image"> <!--upload only images-->
+            </div>
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" class="form-control" id="title" name="title" value="">
+            </div>
+            <div class="form-group">
+                <label for="director">Director</label>
+                <input type="text" class="form-control" id="director" name="director" value="">
+            </div>
+            <div class="form-group">
+                <label for="year">Release Year</label>
+                <input type="date" class="form-control" id="year" name="year"  value="">
+            </div>
+            <div class="form-group">
+                <label for="rating">IMDB Rating</label>
+                <input type="number" step="0.1" class="form-control" id="rating" name="rating" value="">
+            </div>
+            <div class="form-group">
+                <label for="rating">About</label>
+                <input type="text" class="form-control" id="about" name="about" value="">
+            </div>
+            <div class="form-group">
+                <label for="rating">Duration</label>
+                <input type="time" class="form-control" id="duration" name="duration" value="">
+            </div>
+            <div class="form-group">
+                <label for="rating">Actors Ex: ['Actor1', 'Actor2']</label>
+                <input type="text" class="form-control" id="actors" name="actors" value="">
+            </div>
+            <button onclick="return confirm('Are you sure?')" type="submit" name='newmovie' class="btn btn-primary">Add Movie</button>
+            <button onclick="return confirm('Do you want to go back?')" type="submit" name='cancel' class="btn btn-secondary">Cancel</button>
+        </form>
+    </div>
+</div>
+{%endblock%}

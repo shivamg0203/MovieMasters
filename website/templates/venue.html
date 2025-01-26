@@ -1,0 +1,61 @@
+{% extends "base4.html" %}
+ 
+{%block title%}Venue{%endblock%}
+{% block admin %}
+
+<div class="container" >
+    <h1 style="margin-left:35%;">Venue List</h1>
+  <form class="d-flex " action="/admin/venue" role="search" method="POST">
+
+    <select class="form-control" id="dropdown" name="editme" placeholder="Select Venue">
+      {% for option in venue %}
+        <option value="{{ option.id }}">{{ option.movie_venue.name }}, {{option.theatre_venue.name}}, {{option.theatre_venue.city}}, {{option.date}}, {{option.time}}, {{option.cost}} </option>
+      {% endfor %}
+    </select>
+  <button  class="btn btn-outline-success" name="venuesearch" type="submit">Search Venue</button>
+  </form>  
+  <br/>
+<form action="/admin/venue" method="post">
+    <table class="table table-success table-striped"  border="1" cellpadding="10" cellspacing="0" width="100%" height="200" align="center" bgcolor="#e6e6e6" >
+        <caption>Venues</caption>
+  <thead>
+    <tr>
+      <th> MOVIE </th>
+      <th> CITY </th>
+      <th> CAPACITY </th>
+      <th> NAME </th>
+      <th> COST </th>
+      <th>Actions</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for i in venue recursive %} 
+    <tr>
+      <td>{{ i.movie_venue.name }} </td>
+      <td>{{ i.theatre_venue.city }} </td>
+      <td>{{ i.theatre_venue.capacity }} People</td>
+      <td>{{ i.theatre_venue.name }}</td>
+      <td>{{ i.cost }}</td>
+      <td><div style="width: 100%; height: 40px;margin-top:10px">
+        <button type="submit" class="tablebtn" name="edit" value="{{ i.id }}">Edit Details</button>
+        </div>
+      </td>
+    <td><div style="width: 100%; height: 40px;margin-top:10px">
+        <button onclick='return confirm("Do you want to delete this venue?")' type="submit" class="tablebtn" name="delete" value="{{ i.id }}" >Delete</button>
+    </div> </td>
+      
+    </tr>
+    {% endfor %}
+  </tbody>
+    </table>
+    <div class="d-grid gap-2 col-6 mx-auto">
+        <button class="btn btn-primary" style='--bs-btn-color: var(--bs-green);' type="submit" name="createvenue" value="createvenue">Add Venue</button>
+    </div>    
+</form>
+<a href="/download_in_excel/venue"><button type="button"  class="btn btn-info" >Download as Excel</button></a>
+    
+
+</div>
+
+{% endblock %}

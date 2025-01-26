@@ -1,0 +1,46 @@
+{% extends "base2.html" %}
+ 
+{%block title%}Home{%endblock%}
+{%block cards%}
+<div class="container">
+	<h1>{{theatrename.name}}, {{theatrename.city}}</h1>
+	<br/>
+<form  method="post">
+    <table class="table table-success table-striped"  border="1" cellpadding="10" cellspacing="0" width="100%" height="200" align="center" bgcolor="#e6e6e6" summary="This table displays information about fruits">
+        <caption>Venue List</caption>
+  <thead>
+    <tr>
+      <th> MOVIE NAME</th>
+      <th> DATE </th>
+      <th> TIME </th>
+	  <th> PRICE (Rs.) </th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for i in venuelist recursive %} 
+    <tr>
+      <td>{{ i.movie_venue.name }} </td>
+      <td>{{ i.date }} </td>
+      <td>{{ i.time }}</td>
+      <td>{{ i.cost }}</td>
+      <td ><div style="display:flex;align-items:center;flex-direction:row;">
+        <input type="number" class="form-control" id="tickets" name="numberoftickets-{{ i.id }}" min="1" max="{{i.theatre_venue.capacity - i['id'] | seatsbook}}" placeholder="Number of Tickets">
+        <button type="submit" style="width:130%;" onclick="confirm('Book this Venue')"  name="tbookvenue" value="{{ i.id }}">Book</button>
+        </div>
+      </td>
+      
+   
+      
+    </tr>
+    {% endfor %}
+  </tbody>
+    </table>   
+    <!-- <input class='col-6' style='position:relative;border-radius:5px;' type="submit" value="Add Movie"> -->
+</form>
+</div>
+
+
+
+
+{%endblock%}

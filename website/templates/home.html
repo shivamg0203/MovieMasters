@@ -1,0 +1,65 @@
+{% extends "base2.html" %}
+ 
+{%block title%}Home{%endblock%}
+
+
+
+{%block cards%}
+
+<div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="3000">
+      <img src="https://assets-in.bmscdn.com/promotions/cms/creatives/1677580980062_blueskyweb.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item" >
+      <img src="https://assets-in.bmscdn.com/promotions/cms/creatives/1679640035429_krshnaweb.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://assets-in.bmscdn.com/promotions/cms/creatives/1677493393240_web.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://assets-in.bmscdn.com/promotions/cms/creatives/1675080138999_web.jpg" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<div class="carousel" id="recomm-carousel">
+  <h2>Recommended Movies</h2>
+  <div class="carousel-container" >
+    {% for w in recomm recursive%}
+      <a href="/searchbymovie/{{w.name}}" style="text-decoration:none;color:black;"><div class="card" ><img  src="data:image/png;base64,{{ w['image'] | base64_encode }}" alt="Recommended"><span>{{w.name}}</span></div></a>
+    {% endfor %}
+  </div>
+  <button class="carousel-button left"><</button>
+  <button class="carousel-button right">></button>
+</div>
+
+<h2 id="preheading"> Top shows</h2>
+<div class="card-carousel">
+    {% for p in pre recursive%}
+      <a href="/searchbymovie/{{p.name}}"  style="text-decoration:none;color:black;"><div class="cardun"><img  src="data:image/png;base64,{{ p['image'] | base64_encode }}" alt="Releasing Soon"><span>{{p.name}}</span></div></a>
+    {% endfor %}  
+</div>     
+
+<div class="second-carousel" id="othershows">
+  <h2>Other Shows</h2>
+  <div class="second-carousel-container">
+    {% for o in other recursive%}
+    <a href="/searchbymovie/{{o.name}}"  style="text-decoration:none;color:black;"><div class="second-card"><img  src="data:image/png;base64,{{ o['image'] | base64_encode }}" alt="Other Shows"><span>{{o.name}}</span></div></a>
+    {% endfor %}
+  </div>
+  <button class="second-carousel-button left"><</button>
+  <button class="second-carousel-button right">></button>
+</div>
+
+{%endblock%}  
+
+

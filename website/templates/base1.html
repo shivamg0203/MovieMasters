@@ -1,0 +1,76 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="../static/css/style.css" rel="stylesheet" />
+
+    
+    <title>{%block title%}Hello, world!{%endblock%}</title>
+    <link rel="icon" type="images/x-icon" href="../static/logo.png" />
+  </head>
+
+  <body>
+
+   
+        <nav class="navbar sticky-top bg-gradient navbar-expand-lg bg-body-tertiary " id="header">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#"><img src="../static/logo.png" alt="Comany Logo" width="80" height="40" title="Movie N More"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </nav>
+    {% block login %}
+    {% endblock %}
+   
+    <footer >
+        
+            <ul class="footerlist">
+                <li><b>About</b></li>
+                <li><a  href="#" >Terms and Condition</a></li>
+                <li><a  href="#" >Privacy Policy</a></li>
+                <li><a  href="#" >Purchase Policy</a></li>
+            </ul>
+            <ul class="footerlist">
+                <li class="heading" ><b>Choose Language</b></li>
+                <li class="lang" >English</li>
+                <li class="lang" >Malayalam</li>
+                <li class="lang" >Tamil</li>
+            </ul>
+            <ul class="footerlist">
+                <li class="heading" ><b>Upcoming Movies</b></li>
+                <li class="lang" >Movie 1</li>
+                <li class="lang" >Movie 2</li>
+                <li class="lang" >Movie 3</li>
+            </ul>
+            
+
+            <ul class="footerlist">
+                <li class="heading" >Apps</li>
+                <li ><a   href="#" ><img alt="Get it on Google Play" src="https://data.justickets.co/assets/en-play-badge.png" data-reactid=".0.2.2.1.0.0" height="30px" width="121px"></a></li>
+                <li ><a   href="#" ><img alt="Download on the App Store" src="https://cdn.freebiesupply.com/logos/large/2x/available-on-the-app-store-logo-png-transparent.png" height="30px" width="121px"></a></li>
+                
+            </ul>    
+                
+        <ul class="footerlist">
+            <li><b>Mail-to</b></li>
+            <li><a href="#">donotreply@example.com</a></li>
+            
+           
+            <li>Alan Shepard</li>
+        </ul>
+        
+        
+    </footer>
+   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="../static/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+{% extends "base2.html" %}
+ 
+{%block title%} Book {%endblock%}
+{%block cards%}
+<div class="container">
+    <h1 class="display-5" style="display:flex;justify-content:space-around;">Congratulations, Booked {{tickets}} Tickets</h1>
+    <h1 class="display-5" style="display:flex;justify-content:space-around;">You Payed Rs {{tickets * reqvenue.cost}}</h1>
+    <div class="" style="display:flex;flex-direction:row-reverse;">
+    <img src="data:image/png;base64,{{ reqvenue.movie_venue['image'] | base64_encode }}" class="img-thumbnail" style="width: 30%;height:15%;"alt="Movie Thumbnail">
+	<div>
+    <h1>{{reqvenue.movie_venue.name}}</h1>
+    <p><strong>Actors  - </strong>  
+        {% for l in reqvenue.movie_venue.actors %}
+        {{l}},
+        {% endfor %}</p>
+    <p><strong>Duration  - </strong> {{reqvenue.movie_venue.duration}}</p>
+    <p><strong>About  - </strong> {{reqvenue.movie_venue.about}}</p>
+    <p><strong>IMDB  - </strong> {{reqvenue.movie_venue.imdb_rating}}</p>
+    <p><strong>Realised On  - </strong> {{reqvenue.movie_venue.release_date}}</p>
+    <p><strong>Directed By  - </strong> {{reqvenue.movie_venue.director_name}}</p>
+    </div>
+    </div>
+    <br/>
+    <h1 class="display-5">Venue and Order Details</h1>
+    <br/>
+    <span style="display:flex;justify-content:space-evenly;"><h5><strong>Theatre Name- </strong> {{reqvenue.theatre_venue.name}}</h5>
+    <h5><strong>City  - </strong> {{reqvenue.theatre_venue.city}}</h5></span>
+    <br/>
+    <span style="display:flex;justify-content:space-evenly;"><h5><strong>Date  - </strong> {{reqvenue.date}}</h5>
+    <h5><strong>Time  - </strong> {{reqvenue.time}}</h5><h5><strong>Order Id is - </strong> {{oid}}</h5></span>
+    <br/>
+    <div class="d-grid gap-2 col-5 mx-auto">
+      <a href="/home"><button class="btn btn-primary" type="button">Go to Home</button></a>
+    </div>
+</div>
+
+
+
+
+
+{%endblock%}

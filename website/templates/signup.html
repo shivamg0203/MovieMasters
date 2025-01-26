@@ -1,0 +1,60 @@
+{% extends "base1.html" %}
+
+{%block title%}Sign-Up{%endblock%}
+{% block login %}
+<form method="post" action="" onkeyup="formValidate()"> 
+    <div class="a-box container width=device-width">
+        <h1>Create Account</h1>
+        <div class="form-group">
+        <label for="exampleFormControlInput1">Username</label>
+        <input type="username" class="form-control" id="username" name="signupusername" placeholder="Username" >
+        </div>
+        
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Password</label>
+            
+            <label for="exampleFormControlInput1" id="infobutton"></label>
+            <input type="password" class="form-control" id="signuppassword" name="signuppassword" placeholder="Type Password" onkeyup="passlen()" >
+        </div>
+        
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Confirm Password</label>
+            <label for="exampleFormControlInput1" id="forinfo"></label>
+            <input type="password" class="form-control" id="signupconfirmpassword" name="signupconfirmpassword" placeholder="Retype Password" >
+        </div>
+        
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Email</label>
+            <input type="email" class="form-control" id="signupemail" name="signupemail" placeholder="Email Address" >
+        </div>
+
+        {% with messages = get_flashed_messages() %}  
+          {% if messages %}  
+              {% for message in messages %}  
+                  <div class="alert alert-danger d-flex align-items-center" role="alert">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="bi bi-exclamation-triangle-fill flex-shrink-0 w-10 h-10 me-2"  role="img" aria-label="Warning:">
+                      <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                      </svg>
+                      <div class="loginmsg">
+                          {{message}}
+                      </div>
+                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
+              {% endfor %}  
+          {% endif %}  
+      {% endwith %}   
+        <div class="_9bq4">
+            <a href="/login" aria-label="Already have an account?" >Already have an account? Sign-in</a>
+        </div>
+        <br/>
+        <button type="submit" class="btn btn-block btn-success w-100">Submit</button>
+        <br/>   
+    <br/>   
+
+
+
+    </div> 
+    <br/>   
+    <br/>   
+  </form>
+{% endblock %}

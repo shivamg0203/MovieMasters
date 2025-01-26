@@ -1,0 +1,57 @@
+{% extends "base2.html" %}
+ 
+{%block title%}Home{%endblock%}
+{%block cards%}
+<div class="container">
+  <h1 class="display-5" style="display:flex;justify-content:space-around;">All ORDERS</h1>
+	<div style="background:silver;">
+  <span style="color:red;">Red : Venue Over</span>
+	<span style="color:white; ">White : Venue Today</span>
+	<span style="color:green;">Green : Venue Upcoming</span>
+</div>
+  <br/>
+    
+<form method="post">
+    <table class="table table-success table-striped"  border="1" cellpadding="10" cellspacing="0" width="100%" height="200" align="center" bgcolor="#e6e6e6" summary="This table displays information about fruits">
+        <caption>Venue List</caption>
+  <thead>
+    <tr>
+      <th> MOVIE NAME</th>
+      <th> THEATRE NAME (CITY)</th>
+      <th> DATE </th>
+      <th> TIME </th>
+	  <th> SEATS/PRICE (Rs.) </th>
+      <th>AMOUNT</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for i in orderlist recursive %} 
+    <tr>
+      
+      <td>{{ i.order_venue.movie_venue.name }} </td>
+      <td>{{ i.order_venue.theatre_venue.name }} ({{ i.order_venue.theatre_venue.city }}) </td>
+      {% if i.order_venue.date < today %}
+        <td style="color:red;">{{ i.order_venue.date }}</td>
+      {% elif i.order_venue.date == today %}
+        <td style="color:white;">{{ i.order_venue.date }}</td>
+      {% else %}
+        <td style="color:green;">{{ i.order_venue.date }}</td>
+      {% endif %}   
+      <td>{{ i.order_venue.time }}</td>
+      <td>{{ i.seats }} @ Rs.{{ i.order_venue.cost }}</td>
+      <td>{{ i.seats * i.order_venue.cost }}</td>
+              
+        </td>
+      
+
+      
+    </tr>
+    {% endfor %}
+  </tbody>
+    </table>   
+</form>
+<a href="/order_in_excel"><button type="button"  class="btn btn-info" >Download as Excel</button></a>
+</div>
+
+
+{%endblock%}
